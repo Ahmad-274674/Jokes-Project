@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
+    <title>Joke | Project</title>
+  </head>
+  <body id="bodyArea">
+    <div class="loading">
+      <div class="text">
+        <span>Loading...</span>
+        <span id="prograss">0%</span>
+      </div>
+      <div class="prograssBar">
+        <div class="percentComplete"></div>
+      </div>
+    </div>
+    <div class="box">
+      <div class="joke-number">
+        <div class="joke-n">
+          <p>Joke</p>
+        </div>
+        <div class="navigationBtn">
+          <input type="number" id="rangeInput" placeholder="Enter joke number">
+          <p id="goTo">Go to</p>
+        </div>
+        <div class = "joke-n" id="joke-no"></div>
+      </div>
+      <div id="toast"></div>
+      <div class="box-joke">
+        <p id="jokeArea"></p>
+      </div>
+      <div class="btns">
+        <button type="button" id="previousBtn" class="btn">Previous</button>
+        <button type="button" id="nextBtn" class="btn">Next</button>
+      </div>
+    </div>
+    <script type="text/javascript" src="script.js"></script>
+    <script>
+      const prograss = document.getElementById('prograss');
+      const percentComplete = document.querySelector('.percentComplete');
+      const loading = document.querySelector('.loading');
+      const prog = {
+        counter : 0
+      }
+
+      window.addEventListener('load', () =>{
+        setInterval(() => {
+        if(prog.counter <  100){
+          prog.counter++;
+          prograss.innerText = prog.counter.toString() + '%';
+          percentComplete.style.width = prograss.innerText;
+        }
+      }, 10);
+        setTimeout(() => {
+          loading.style.display = 'none';
+        }, 1000);
+      })
+    </script>
+  </body>
+</html>
